@@ -1,8 +1,8 @@
 <?php
-include "config_beneficiados.php";
+include "config_eleitores.php";
 
 $codigo = $_GET['codigo'];
-$query = "SELECT a.*, m.municipio AS municipio FROM beneficiados a "
+$query = "SELECT a.*, m.municipio AS municipio FROM eleitores a "
     . "LEFT JOIN municipios m ON m.codigo = a.municipio "
     . "WHERE a.codigo = '{$codigo}'";
 $result = mysql_query($query);
@@ -14,7 +14,7 @@ $d = mysql_fetch_object($result);
     <ol class="breadcrumb shadow bg-gray-custom">
         <li class="breadcrumb-item"><a href="#" url="content.php">Início</a></li>
         <li class="breadcrumb-item" aria-current="page">
-            <a href="#" url="<?= $urlBeneficiados; ?>/index.php">Beneficiados</a>
+            <a href="#" url="<?= $urlEleitores; ?>/index.php">Eleitores</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
             Visualizar
@@ -28,33 +28,22 @@ $d = mysql_fetch_object($result);
             Visualizar
         </h6>
         <div class="d-md-flex justify-content-xl-center">
-            <?php
-            if(in_array('Beneficiados - Cadastrar', $ConfPermissoes)){
-            ?>
             <button
                     type="button"
                     class="btn btn-success btn-sm float-left"
-                    url="<?= $urlBeneficiados ?>/form.php"
+                    url="<?= $urlEleitores ?>/form.php"
                     style="margin-right: 2px"
             >
                 <i class="fa-solid fa-plus"></i> Novo
             </button>
-            <?php
-            }
-            if(in_array('Beneficiados - Editar', $ConfPermissoes)){
-            ?>
             <button
                     type="button"
                     class="btn btn-warning btn-sm float-left"
-                    url="<?= $urlBeneficiados ?>/form.php?codigo=<?= $codigo; ?>"
+                    url="<?= $urlEleitores ?>/form.php?codigo=<?= $codigo; ?>"
                     style="margin-right: 2px"
             >
                 <i class="fa-solid fa-pencil"></i> Editar
             </button>
-            <?php
-            }
-            if(in_array('Beneficiados - Excluir', $ConfPermissoes)){
-            ?>
             <button
                     type="button"
                     class="btn btn-danger btn-excluir btn-sm float-left"
@@ -62,9 +51,6 @@ $d = mysql_fetch_object($result);
             >
                 <i class="fa-regular fa-trash-can"></i> Excluir
             </button>
-            <?php
-            }
-            ?>
         </div>
     </div>
     <div class="card-body">
@@ -126,7 +112,7 @@ $d = mysql_fetch_object($result);
                     btnClass: 'btn-red',
                     action: function () {
                         $.ajax({
-                            url: '<?= $urlBeneficiados;?>/index.php',
+                            url: '<?= $urlEleitores;?>/index.php',
                             method: 'POST',
                             data: {
                                 acao: 'excluir',
@@ -139,7 +125,7 @@ $d = mysql_fetch_object($result);
                                     tata.success('Sucesso', retorno.msg);
 
                                     $.ajax({
-                                        url: '<?= $urlBeneficiados; ?>/index.php',
+                                        url: '<?= $urlEleitores; ?>/index.php',
                                         success: function (response) {
                                             $('#palco').html(response);
                                         }

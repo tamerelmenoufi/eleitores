@@ -1,5 +1,6 @@
 <?php
-include "config_beneficiados.php";
+
+include "config_eleitores.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = $_POST;
@@ -17,23 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $attr = implode(', ', $attr);
 
-    if ($codigo) {
-        $query = "UPDATE beneficiados SET {$attr} WHERE codigo = '{$codigo}'";
-    } else {
-        $query = "INSERT INTO beneficiados SET {$attr}";
-    }
+    $query = "INSERT INTO eleitores SET {$attr}";
 
     if (mysql_query($query)) {
-        $codigo = $codigo ?: mysql_insert_id();
+        $codigo = mysql_insert_id();
 
-        sis_logs('beneficiados', $codigo, $query);
+        sis_logs('eleitores', $codigo, $query);
 
         echo json_encode([
             'status' => true,
-            'msg' => 'Dados salvo com sucesso',
+            'msg' => 'Salvo com sucesso',
+            'nome' => $_POST['nome'],
             'codigo' => $codigo,
         ]);
     } else {
+
         echo json_encode([
             'status' => false,
             'msg' => 'Erro ao salvar',
@@ -45,36 +44,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-$codigo = $_GET['codigo'];
-
-if ($codigo) {
-    $query = "SELECT * FROM beneficiados WHERE codigo = '{$codigo}'";
-    $result = mysql_query($query);
-    $d = mysql_fetch_object($result);
-}
 
 ?>
 
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb shadow bg-gray-custom">
-        <li class="breadcrumb-item"><a href="#" url="content.php">Início</a></li>
-        <li class="breadcrumb-item" aria-current="page">
-            <a href="#" url="<?= $urlBeneficiados; ?>/index.php">Beneficiados</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-            <?= $codigo ? 'Alterar' : 'Cadastrar'; ?>
-        </li>
-    </ol>
-</nav>
+<style>
+    .btn-fechar{
+        position:absolute;
+        right:20px;
+        top:20px;
+        cursor:pointer;
+        font-size:20px;
+    }
+</style>
 
-<div class="card shadow mb-4">
-    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">
-            <?= $codigo ? 'Alterar' : 'Cadastrar'; ?> beneficiados
-        </h6>
-    </div>
-    <div class="card-body">
-        <form id="form-beneficiados">
+        <form id="form-eleitores">
+            <h3>CADASTRO DE NOVO BENEFICIADO</h3>
+            <span Fechar class="btn-fechar"><i class="fas fa-times"></i></span>
             <div class="form-group">
                 <label for="nome">Nome <i class="text-danger">*</i></label>
                 <input
@@ -164,7 +149,6 @@ if ($codigo) {
                                 id="email"
                                 name="email"
                                 value="<?= $d->email; ?>"
-
                         >
 
                     </div>
@@ -188,7 +172,7 @@ if ($codigo) {
             </div>
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="municipio">
                             Municipio <i class="text-danger">*</i>
@@ -216,41 +200,9 @@ if ($codigo) {
 
                     </div>
                 </div>
-
-
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="bairro">
-                            Bairro <i class="text-danger">*</i>
-                        </label>
-                        <select
-                                class="form-control"
-                                id="bairro"
-                                name="bairro"
-                                data-live-search="true"
-                                required
-                        >
-                            <option value=""></option>
-                            <?php
-                            $query = "SELECT * FROM bairros where deletado = '0'";
-                            $result = mysql_query($query);
-
-                            while ($m = mysql_fetch_object($result)): ?>
-                                <option
-                                    <?= ($codigo and $d->bairro == $m->codigo) ? 'selected' : ''; ?>
-                                        value="<?= $m->codigo ?>">
-                                    <?= $m->descricao; ?>
-                                </option>
-                            <?php endwhile; ?>
-                        </select>
-
-                    </div>
-                </div>
-
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="cpf">
+                        <label for="cep">
                             CEP <i class="text-danger"></i>
                         </label>
                         <input
@@ -280,12 +232,8 @@ if ($codigo) {
 
             </div>
 
-            <input type="hidden" id="codigo" value="<?= $codigo; ?>">
-
             <button type="submit" class="btn btn-success">Salvar</button>
         </form>
-    </div>
-</div>
 
 <script>
     $(function () {
@@ -297,7 +245,15 @@ if ($codigo) {
 
         $('#municipio').selectpicker();
 
-        $('#form-beneficiados').validate();
+        $('#form-eleitores').validate();
+
+        $("span[Fechar]").click(function(){
+            $("div[NovoCadastroBG]").css("display","none");
+            $("div[NovoCadastro]").css("display","none");
+            $("div[NovoCadastro]").html('');
+            $("#beneficiado").val('');
+            $("#beneficiado").selectpicker('refresh');
+        });
 
         $("#cep").blur(function () {
             var cep = $(this).val().replace(/\D/g, '');
@@ -320,20 +276,16 @@ if ($codigo) {
             }
         });
 
-        $('#form-beneficiados').submit(function (e) {
+        $('#form-eleitores').submit(function (e) {
             e.preventDefault();
 
             if (!$(this).valid()) return false;
 
-            var codigo = $('#codigo').val();
             var dados = $(this).serializeArray();
 
-            if (codigo) {
-                dados.push({name: 'codigo', value: codigo})
-            }
 
             $.ajax({
-                url: '<?= $urlBeneficiados; ?>/form.php',
+                url: '<?= $urlEleitores; ?>/novo.php',
                 method: 'POST',
                 data: dados,
                 success: function (response) {
@@ -342,13 +294,21 @@ if ($codigo) {
                     if (retorno.status) {
                         tata.success('Sucesso', retorno.msg);
 
-                        $.ajax({
-                            url: '<?= $urlBeneficiados; ?>/visualizar.php',
-                            data: {codigo: retorno.codigo},
-                            success: function (response) {
-                                $('#palco').html(response);
-                            }
-                        })
+                        $("#beneficiado").append('<option value="'+retorno.codigo+'">'+retorno.nome+'</option>');
+                        $("#beneficiado").selectpicker('refresh');
+                        $("#beneficiado").selectpicker('val', retorno.codigo);
+
+                        $("div[NovoCadastroBG]").css("display","none");
+                        $("div[NovoCadastro]").css("display","none");
+                        $("div[NovoCadastro]").html('');
+                        // $.ajax({
+                        //     url: '<?= $urlEleitores; ?>/visualizar.php',
+                        //     data: {codigo: retorno.codigo},
+                        //     success: function (response) {
+                        //         $('#palco').html(response);
+                        //     }
+                        // })
+
                     } else {
                         tata.error('Error', retorno.msg);
                     }

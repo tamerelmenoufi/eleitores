@@ -1,7 +1,7 @@
 <?php
 include "../../../lib/includes.php";
 
-$urlBeneficiados = 'paginas/cadastros/beneficiados';
+$urlEleitores = 'paginas/cadastros/eleitores';
 
 function getSexo()
 {

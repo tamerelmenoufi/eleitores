@@ -1,5 +1,5 @@
 <?php
-include "config_beneficiados.php";
+include "config_eleitores.php";
 
 $column = [
     'nome',
@@ -80,7 +80,7 @@ exit();
 
 function count_all_data()
 {
-    $query = "SELECT COUNT(codigo) FROM beneficiados WHERE deletado != '1'";
+    $query = "SELECT COUNT(codigo) FROM eleitores WHERE deletado != '1'";
     $result = mysql_query($query);
     list($qtd) = mysql_fetch_row($result);
     return $qtd;

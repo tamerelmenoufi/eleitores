@@ -1,10 +1,10 @@
 <?php
-include "config_beneficiados.php";
+include "config_eleitores.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' and $_POST['acao'] === 'excluir') {
     $codigo = $_POST['codigo'];
 
-    if (exclusao('beneficiados', $codigo)) {
+    if (exclusao('eleitores', $codigo)) {
         echo json_encode(["status" => true, "msg" => "Registro excluído com sucesso"]);
     } else {
         echo json_encode(["status" => false, "msg" => "Error ao tentar excluír"]);
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' and $_POST['acao'] === 'excluir') {
     exit;
 }
 
-$query = "SELECT b.*, m.municipio AS municipio FROM beneficiados b "
+$query = "SELECT b.*, m.municipio AS municipio FROM eleitores b "
     . "LEFT JOIN municipios m ON m.codigo = b.municipio "
     . "WHERE b.deletado = '0' "
     . "ORDER BY codigo desc";
@@ -23,24 +23,18 @@ $result = mysql_query($query);
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb shadow bg-gray-custom">
         <li class="breadcrumb-item"><a href="#" url="content.php">Início</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Beneficiados</li>
+        <li class="breadcrumb-item active" aria-current="page">Eleitores</li>
     </ol>
 </nav>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">
-            Beneficiados
+            Eleitores
         </h6>
-        <?php
-        if (in_array('Beneficiados - Cadastrar', $ConfPermissoes)) {
-            ?>
-            <button type="button" class="btn btn-success btn-sm" url="paginas/cadastros/beneficiados/form.php">
+            <button type="button" class="btn btn-success btn-sm" url="paginas/cadastros/eleitores/form.php">
                 <i class="fa-solid fa-plus"></i> Novo
             </button>
-            <?php
-        }
-        ?>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -73,7 +67,7 @@ $result = mysql_query($query);
             "paging": true,
             "stateSave": true,
             "ajax": {
-                url: "<?= $urlBeneficiados; ?>/fetch.php",
+                url: "<?= $urlEleitores; ?>/fetch.php",
                 method: "POST",
             },
             "columnDefs": [
@@ -98,7 +92,7 @@ $result = mysql_query($query);
                         btnClass: 'btn-red',
                         action: function () {
                             $.ajax({
-                                url: '<?= $urlBeneficiados;?>/index.php',
+                                url: '<?= $urlEleitores;?>/index.php',
                                 method: 'POST',
                                 data: {
                                     acao: 'excluir',

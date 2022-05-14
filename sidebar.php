@@ -30,7 +30,7 @@
 
 
     <li class="nav-item active">
-        <a class="nav-link" href="./">
+        <a class="nav-link" href="paginas/cadastros/eleitores/index.php">
             <i class="fa-solid fa-house"></i>
             <span>Eleitores</span></a>
     </li>
