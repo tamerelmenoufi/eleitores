@@ -10,7 +10,7 @@ if ($_POST['acao'] === 'verifica_sessao') {
 if (!isset($_SESSION['usuario'])) {
     header("Location: ./");
 }
-echo "Tudo certo!";
+echo "Tudo certo 2!";
 exit();
 
 ?>
