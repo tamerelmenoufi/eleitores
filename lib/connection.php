@@ -13,7 +13,7 @@ if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '10.0.0.1
 
 echo DB_HOST.' & '.DB_USERNAME.' & '.DB_PASSWORD;
 
-$con = mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
+$con = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
 mysql_set_charset('utf8', $con);
 mysql_select_db(DB_DATABASE, $con);
 
