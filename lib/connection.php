@@ -11,6 +11,7 @@ if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '10.0.0.1
     define('DB_DATABASE', 'eleitores');
 }
 
+echo DB_HOST.' & '.DB_USERNAME.' & '.DB_PASSWORD; exit();
 
 $con = mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
 mysql_set_charset('utf8', $con);
