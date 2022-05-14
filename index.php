@@ -53,13 +53,13 @@ if (!isset($_SESSION['usuario'])) {
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <?php include "sidebar.php"; ?>
+    <?php include "./sidebar.php"; ?>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
-        <?php include "header.php"; ?>
+        <?php include "./header.php"; ?>
 
         <!-- Main Content -->
         <div id="content" style="position: relative">
@@ -69,7 +69,7 @@ if (!isset($_SESSION['usuario'])) {
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <div id="palco">
-                    <?php include "content.php"; ?>
+                    <?php include "./content.php"; ?>
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -78,7 +78,7 @@ if (!isset($_SESSION['usuario'])) {
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <?php include "footer.php"; ?>
+        <?php include "./footer.php"; ?>
         <!-- End of Footer -->
 
     </div>
