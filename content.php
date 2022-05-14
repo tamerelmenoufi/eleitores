@@ -1,5 +1,5 @@
 <?php
-include_once '../lib/includes.php';
+include_once './lib/includes.php';
 
 $queryUsuarios = "(SELECT COUNT(*) FROM usuarios) AS usuarios";
 $queryBeneficiado = "(SELECT COUNT(*) FROM beneficiados) AS beneficiados, ";
