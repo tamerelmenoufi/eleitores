@@ -11,7 +11,7 @@ if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '10.0.0.1
     define('DB_DATABASE', 'eleitores');
 }
 
-echo DB_HOST.' & '.DB_USERNAME.' & '.DB_PASSWORD; exit();
+echo DB_HOST.' & '.DB_USERNAME.' & '.DB_PASSWORD;
 
 $con = mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD);
 mysql_set_charset('utf8', $con);
@@ -21,4 +21,5 @@ if (!$con) {
     die('Não foi possível conectar: ' . mysql_error());
 }
 
+exit();
 #mysql_close($con);
