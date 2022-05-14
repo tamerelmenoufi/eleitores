@@ -20,6 +20,21 @@
 
     <hr class="sidebar-divider">
 
+
+
+    <li class="nav-item active">
+        <a class="nav-link" href="./">
+            <i class="fa-solid fa-house"></i>
+            <span>Assessores</span></a>
+    </li>
+
+
+    <li class="nav-item active">
+        <a class="nav-link" href="./">
+            <i class="fa-solid fa-house"></i>
+            <span>Eleitores</span></a>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#relatorios"
            aria-expanded="true" aria-controls="relatorios">
