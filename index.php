@@ -1,7 +1,8 @@
 <?php
 //error_reporting(E_ALL);
 include "lib/includes.php";
-
+echo "Tudo certo!";
+exit();
 if ($_POST['acao'] === 'verifica_sessao') {
     echo json_encode(["sessao" => isset($_SESSION['usuario'])]);
     exit();
