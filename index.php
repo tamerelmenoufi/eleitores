@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 include "lib/includes.php";
 
 if ($_POST['acao'] === 'verifica_sessao') {
