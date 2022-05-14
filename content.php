@@ -1,13 +1,6 @@
 <?php
 include_once './lib/includes.php';
 
-$queryUsuarios = "(SELECT COUNT(*) FROM usuarios) AS usuarios";
-$queryBeneficiado = "(SELECT COUNT(*) FROM beneficiados) AS beneficiados, ";
-$queryServicos = "(SELECT COUNT(*) FROM servicos) AS servicos, ";
-$queryAssessores = "(SELECT COUNT(*) FROM assessores) AS assessores, ";
-
-$queryCount = "SELECT {$queryBeneficiado}{$queryServicos}{$queryAssessores}{$queryUsuarios}";
-$dadosCount = mysql_fetch_object(mysql_query($queryCount));
 ?>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -26,7 +19,7 @@ $dadosCount = mysql_fetch_object(mysql_query($queryCount));
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Usuários
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $dadosCount->usuarios; ?></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">Nome dos Usuários</div>
                     </div>
                     <div class="col-auto">
                         <i class="fa-solid fa-users fa-2x text-gray-300"></i>
@@ -46,7 +39,7 @@ $dadosCount = mysql_fetch_object(mysql_query($queryCount));
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $dadosCount->assessores; ?></div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Nome dos Assessores</div>
                             </div>
                         </div>
                     </div>
@@ -67,7 +60,7 @@ $dadosCount = mysql_fetch_object(mysql_query($queryCount));
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Beneficiados
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $dadosCount->beneficiados; ?></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">Nome dos Benefícios</div>
                     </div>
                     <div class="col-auto">
                         <i class="fa-solid fa-users fa-2x text-gray-300"></i>
@@ -86,7 +79,7 @@ $dadosCount = mysql_fetch_object(mysql_query($queryCount));
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Serviços
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $dadosCount->servicos; ?></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">Nome do Serviço</div>
                     </div>
                     <div class="col-auto">
                         <i class="fa-solid fa-user-gear fa-2x text-gray-300"></i>
@@ -111,25 +104,8 @@ $dadosCount = mysql_fetch_object(mysql_query($queryCount));
             </div>
             <div class="card-body">
 
-                <?php
-                    $query = "select a.*, (select count(*) from servicos where deletado = '0') as geral,  (select count(*) from servicos where deletado = '0' and tipo = a.codigo) as quantidade from servico_tipo a where a.deletado = '0' order by a.tipo";
-                    $result = mysql_query($query);
-                    while($d = mysql_fetch_object($result)){
-                        $pct = number_format(($d->quantidade*100)/$d->geral,0,false,false);
-                ?>
-                <h4 class="small font-weight-bold"><?=$d->tipo?> <span
-                            class="float-right"><?=$pct?>%</span></h4>
-                <div class="progress mb-4">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: <?=$pct?>%"
-                         aria-valuenow="<?=$pct?>" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <?php
-                    }
-                ?>
 
-
-
-                <!-- <h4 class="small font-weight-bold">Server Migration <span
+                <h4 class="small font-weight-bold">Server Migration <span
                             class="float-right">20%</span></h4>
                 <div class="progress mb-4">
                     <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
@@ -158,7 +134,7 @@ $dadosCount = mysql_fetch_object(mysql_query($queryCount));
                 <div class="progress">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
                          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div> -->
+                </div>
             </div>
         </div>
 
