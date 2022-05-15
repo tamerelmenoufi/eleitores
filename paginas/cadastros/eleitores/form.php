@@ -232,7 +232,7 @@ if ($codigo) {
                         >
                             <option value=""></option>
                             <?php
-                            $query = "SELECT * FROM bairros where deletado = '0'";
+                            $query = "SELECT * FROM bairros where municipio = '{$d->municipio}' and deletado = '0'";
                             $result = mysql_query($query);
 
                             while ($m = mysql_fetch_object($result)): ?>
@@ -243,7 +243,9 @@ if ($codigo) {
                                 </option>
                             <?php endwhile; ?>
                         </select>
-
+                        <button class="btn btn-success" AddBairro="<?=$d->bairro?>">
+                            <i class="fa fa-new"></i>
+                        </button>
                     </div>
                 </div>
 
