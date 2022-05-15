@@ -189,7 +189,7 @@ if (!isset($_SESSION['usuario'])) {
                 data: {acao: "verifica_sessao"},
                 success: function (response) {
                     if (!response.sessao) {
-                        window.location = '../admin';
+                        window.location = './';
                     }
                 }
             });
