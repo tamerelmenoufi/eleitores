@@ -1,7 +1,7 @@
 <div class="col">
     <div class="row">
         <div class="col-12">
-            <h3>Inserir um novo Bairro</h3>
+            <h5>Inserir um novo Bairro</h5>
         </div>
         <div class="col-12">
 
