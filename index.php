@@ -182,17 +182,17 @@ if (!isset($_SESSION['usuario'])) {
             console.log(url);
             $('.loading').fadeIn(200);
 
-            $.ajax({
-                url: "index.php",
-                type: "POST",
-                dataType: "JSON",
-                data: {acao: "verifica_sessao"},
-                success: function (response) {
-                    if (!response.sessao) {
-                        //window.location = './';
-                    }
-                }
-            });
+            // $.ajax({
+            //     url: "index.php",
+            //     type: "POST",
+            //     dataType: "JSON",
+            //     data: {acao: "verifica_sessao"},
+            //     success: function (response) {
+            //         if (!response.sessao) {
+            //             //window.location = './';
+            //         }
+            //     }
+            // });
 
             $.ajax({
                 url,
