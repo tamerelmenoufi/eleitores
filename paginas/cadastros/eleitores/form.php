@@ -54,7 +54,11 @@ if ($codigo) {
 }
 
 ?>
-
+<style>
+    i[AddBairro]{
+        cursor:pointer;
+    }
+</style>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb shadow bg-gray-custom">
         <li class="breadcrumb-item"><a href="#" url="content.php">Início</a></li>
