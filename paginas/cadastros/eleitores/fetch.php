@@ -7,7 +7,7 @@ $column = [
     'm.municipio'
 ];
 
-$query = "SELECT b.*, m.municipio AS municipio FROM beneficiados b "
+$query = "SELECT b.*, m.municipio AS municipio FROM eleitores b "
     . "LEFT JOIN municipios m ON m.codigo = b.municipio "
     . "WHERE b.deletado = '0' ";
 
@@ -42,21 +42,17 @@ $data = [];
 while ($row = mysql_fetch_array($result1)) {
     $sub_array = [];
 
-    $btn_acoes = '<button class="btn btn-sm btn-link" url="' . $urlBeneficiados . '/visualizar.php?codigo=' . $row['codigo'] . '">
+    $btn_acoes = '<button class="btn btn-sm btn-link" url="' . $urlEleitores . '/visualizar.php?codigo=' . $row['codigo'] . '">
                         <i class="fa-regular fa-eye text-info"></i>
                    </button>';
 
-    if (in_array('Beneficiados - Editar', $ConfPermissoes)) {
-        $btn_acoes .= '<button class="btn btn-sm btn-link" url="' . $urlBeneficiados . '/form.php?codigo=' . $row['codigo'] . '">
+        $btn_acoes .= '<button class="btn btn-sm btn-link" url="' . $urlEleitores . '/form.php?codigo=' . $row['codigo'] . '">
                         <i class="fa-solid fa-pencil text-warning"></i>
                     </button>';
-    }
 
-    if (in_array('Beneficiados - Excluir', $ConfPermissoes)) {
         $btn_acoes .= '<button class="btn btn-sm btn-link btn-excluir" data-codigo="' . $row['codigo'] . '">
                         <i class="fa-regular fa-trash-can text-danger"></i>
                    </button>';
-    }
 
     $sub_array[] = $row['nome'];
     $sub_array[] = $row['cpf'];
