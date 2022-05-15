@@ -1,3 +1,18 @@
+<?php
+    include "../../../../lib/includes.php";
+
+    if($_POST){
+
+        if($_POST['cod'] and $_POST['bairro']){
+            mysql_query("update bairros set descricao = '{$_POST['bairro']}' where codigo = '{$_POST['cod']}'");
+        }else if($_POST['bairro']){
+            mysql_query("insert into bairros set descricao = '{$_POST['bairro']}', municipio = '{$_POST['municipio']}'");
+        }
+        exit();
+    }
+
+?>
+
 <div class="col">
     <div class="row">
         <div class="col-12">

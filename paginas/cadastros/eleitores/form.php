@@ -305,8 +305,10 @@ if ($codigo) {
 
         $("span[AddBairro]").click(function(){
             municipio = $(this).attr("AddBairro");
+            cod = $("bairro").val();
+
             JanelaAddBairro = $.dialog({
-                content:"url:paginas/cadastros/eleitores/bairros/new.php?municipio="+municipio,
+                content:"url:paginas/cadastros/eleitores/bairros/new.php?municipio="+municipio+"&cod="+cod,
                 title:false,
                 columnClass:'col-md-5'
             });
