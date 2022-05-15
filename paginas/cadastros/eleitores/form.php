@@ -226,7 +226,7 @@ if ($codigo) {
                     <div class="form-group">
                         <label for="bairro">
                             Bairro <i class="text-danger">*</i>
-                            <span AddBairro="<?=$d->bairro?>"><i class="fa-solid fa-circle-plus"></i></span>
+                            <span AddBairro="<?=$d->municipio?>"><i class="fa-solid fa-circle-plus"></i></span>
                         </label>
                         <select
                                 class="form-control"
@@ -303,15 +303,26 @@ if ($codigo) {
 
         $('#form-eleitores').validate();
 
+        $("#municipio").change(function(){
+            municipio = $(this).val();
+            if(municipio){
+                $("span[AddBairro]").attr("AddBairro", municipio);
+            }
+        });
+
+
         $("span[AddBairro]").click(function(){
             municipio = $(this).attr("AddBairro");
             cod = $("bairro").val();
-
-            JanelaAddBairro = $.dialog({
-                content:"url:paginas/cadastros/eleitores/bairros/new.php?municipio="+municipio+"&cod="+cod,
-                title:false,
-                columnClass:'col-md-5'
-            });
+            if(municipio){
+                JanelaAddBairro = $.dialog({
+                    content:"url:paginas/cadastros/eleitores/bairros/new.php?municipio="+municipio+"&cod="+cod,
+                    title:false,
+                    columnClass:'col-md-5'
+                });
+            }else{
+                $.alert("Selecione um município!");
+            }
 
         });
 
