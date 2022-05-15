@@ -297,7 +297,7 @@ if ($codigo) {
 
         $('#telefone').mask('(99) 9 9999-9999');
 
-        $('#municipio').selectpicker();
+        //$('#municipio').selectpicker();
 
         $('#form-eleitores').validate();
 
