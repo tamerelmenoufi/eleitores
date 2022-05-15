@@ -55,7 +55,7 @@ if ($codigo) {
 
 ?>
 <style>
-    i[AddBairro]{
+    span[AddBairro]{
         cursor:pointer;
     }
 </style>
@@ -226,7 +226,7 @@ if ($codigo) {
                     <div class="form-group">
                         <label for="bairro">
                             Bairro <i class="text-danger">*</i>
-                            <i AddBairro="<?=$d->bairro?>" class="fa-solid fa-circle-plus"></i>
+                            <span AddBairro="<?=$d->bairro?>"><i class="fa-solid fa-circle-plus"></i></span>
                         </label>
                         <select
                                 class="form-control"
@@ -303,9 +303,8 @@ if ($codigo) {
 
         $('#form-eleitores').validate();
 
-        $("i[AddBairro]").click(function(){
+        $("span[AddBairro]").click(function(){
             municipio = $(this).attr("AddBairro");
-            alert(municipio);
             JanelaAddBairro = $.dialog({
                 content:"url:paginas/cadastro/eleitores/bairros/new.php?municipio="+municipio,
                 title:false,
