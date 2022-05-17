@@ -1,6 +1,11 @@
 <?php
     include "../../../../lib/includes.php";
 
+    if($_POST['excluir']){
+        mysql_query("update bairros set excluir = '1' where codigo = '{$_POST['cod']}'");
+        exit();
+    }
+
     if($_POST){
 
         if($_POST['cod'] and $_POST['bairro']){
@@ -29,12 +34,14 @@
                 <input type="text" class="form-control" id="NovoBairro" value='<?=$d->descricao?>' >
             </div>
             <button SalvarBairro type="button" class="btn btn-primary">Salvar</button>
+            <button ExcluirBairro type="button" class="btn btn-danger">Exluir</button>
             <?=$d->qt?> Registros
         </div>
     </div>
 </div>
 <script>
     $(function(){
+
         $("button[SalvarBairro]").click(function(){
             cod='<?=$_GET['cod']?>';
             municipio='<?=$_GET['municipio']?>';
@@ -66,5 +73,46 @@
             }
 
         });
+
+        $("button[ExcluirBairro]").click(function(){
+
+            $.confirm({
+                content:"Deseja realmente excluir o registro do Bairro <b><?=$d->descricao?></b>?",
+                title:false,
+                buttons:{
+                    'SIM':function(){
+                        $.ajax({
+                            url:"paginas/cadastros/eleitores/bairros/new.php",
+                            type:"POST",
+                            data:{
+                                cod,
+                                excluir:'1'
+                            },
+                            success:function(dados){
+                                $.ajax({
+                                    url:"paginas/cadastros/eleitores/bairros/list.php",
+                                    type:"POST",
+                                    data:{
+                                        municipio
+                                    },
+                                    success:function(dados){
+                                        $("#bairro").html(dados);
+                                        $.alert('Registro excluido com sucesso!');
+                                        JanelaAddBairro.close();
+                                    }
+                                });
+
+                            }
+                        });
+                    },
+                    'NÃO':function(){
+
+                    }
+                }
+            })
+
+        });
+
+
     })
 </script>
