@@ -28,7 +28,8 @@
                 <label for="NovoBairro">Bairro</label>
                 <input type="text" class="form-control" id="NovoBairro" value='<?=$d->descricao?>' >
             </div>
-            <button SalvarBairro type="button" class="btn btn-primary">Salvar (<?=$d->qt?> Registros)</button>
+            <button SalvarBairro type="button" class="btn btn-primary">Salvar</button>
+            <?=$d->qt?> Registros
         </div>
     </div>
 </div>
