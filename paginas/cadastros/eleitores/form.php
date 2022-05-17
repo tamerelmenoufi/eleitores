@@ -307,6 +307,18 @@ if ($codigo) {
             municipio = $(this).val();
             if(municipio){
                 $("span[AddBairro]").attr("AddBairro", municipio);
+
+                $.ajax({
+                    url:"paginas/cadastros/eleitores/bairros/list.php",
+                    type:"POST",
+                    data:{
+                        municipio
+                    },
+                    success:function(dados){
+                        $("#bairro").html(dados);
+                    }
+                });
+
             }else{
                 $("span[AddBairro]").attr("AddBairro", '');
             }
