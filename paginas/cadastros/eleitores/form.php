@@ -307,6 +307,8 @@ if ($codigo) {
             municipio = $(this).val();
             if(municipio){
                 $("span[AddBairro]").attr("AddBairro", municipio);
+            }else{
+                $("span[AddBairro]").attr("AddBairro", '');
             }
         });
 
