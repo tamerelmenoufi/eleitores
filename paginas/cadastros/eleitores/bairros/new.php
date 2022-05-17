@@ -11,6 +11,11 @@
         exit();
     }
 
+
+    if($_GET['cod']){
+        $d = mysql_fetch_object(mysql_query("select * from bairros where codigo = '{$_GET['cod']}'"));
+    }
+
 ?>
 
 <div class="col">
@@ -21,7 +26,7 @@
         <div class="col-12">
             <div class="form-group">
                 <label for="NovoBairro">Bairro</label>
-                <input type="text" class="form-control" id="NovoBairro" >
+                <input type="text" class="form-control" id="NovoBairro" value='<?=$d->descricao?>' >
             </div>
             <button SalvarBairro type="button" class="btn btn-primary">Salvar</button>
         </div>
@@ -30,7 +35,7 @@
 <script>
     $(function(){
         $("button[SalvarBairro]").click(function(){
-            cod='<?=$_GET['codigo']?>';
+            cod='<?=$_GET['cod']?>';
             municipio='<?=$_GET['municipio']?>';
             bairro=$("#NovoBairro").val();
             if(bairro){
