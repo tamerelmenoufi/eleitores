@@ -23,7 +23,7 @@
 
 
     <li class="nav-item active">
-        <a class="nav-link" href="./">
+        <a class="nav-link" href="#" url="paginas/cadastros/assessores/index.php">
             <i class="fa-solid fa-house"></i>
             <span>Assessores</span></a>
     </li>
