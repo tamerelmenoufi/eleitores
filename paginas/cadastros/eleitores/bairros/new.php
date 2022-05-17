@@ -13,7 +13,7 @@
 
 
     if($_GET['cod']){
-        $d = mysql_fetch_object(mysql_query("select * from bairros where codigo = '{$_GET['cod']}'"));
+        $d = mysql_fetch_object(mysql_query("select *, (select count(*) from eleitores where bairro = '{$_GET['cod']}') as qt from bairros where codigo = '{$_GET['cod']}'"));
     }
 
 ?>
@@ -28,7 +28,7 @@
                 <label for="NovoBairro">Bairro</label>
                 <input type="text" class="form-control" id="NovoBairro" value='<?=$d->descricao?>' >
             </div>
-            <button SalvarBairro type="button" class="btn btn-primary">Salvar</button>
+            <button SalvarBairro type="button" class="btn btn-primary">Salvar (<?=$d->qt?> Registros)</button>
         </div>
     </div>
 </div>
