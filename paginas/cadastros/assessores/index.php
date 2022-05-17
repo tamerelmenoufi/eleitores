@@ -57,28 +57,21 @@ $result = mysql_query($query);
                             >
                                 <i class="fa-regular fa-eye text-info"></i>
                             </button>
-                            <?php
-                            if (in_array('Assessores - Editar', $ConfPermissoes)) {
-                                ?>
+
                                 <button
                                         class="btn btn-sm btn-link"
                                         url="<?= $urlAssessores ?>/form.php?codigo=<?= $d->codigo; ?>"
                                 >
                                     <i class="fa-solid fa-pencil text-warning"></i>
                                 </button>
-                                <?php
-                            }
-                            if (in_array('Assessores - Excluir', $ConfPermissoes)) {
-                                ?>
+
                                 <button
                                         class="btn btn-sm btn-link btn-excluir"
                                         data-codigo="<?= $d->codigo ?>"
                                 >
                                     <i class="fa-regular fa-trash-can text-danger"></i>
                                 </button>
-                                <?php
-                            }
-                            ?>
+
                         </td>
                     </tr>
                 <?php endwhile; ?>
