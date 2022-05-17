@@ -2,7 +2,7 @@
     include "../../../../lib/includes.php";
 
     if($_POST['excluir']){
-        mysql_query("update bairros set excluir = '1' where codigo = '{$_POST['cod']}'");
+        mysql_query("update bairros set deletado = '1' where codigo = '{$_POST['cod']}'");
         exit();
     }
 

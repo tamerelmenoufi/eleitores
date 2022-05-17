@@ -3,7 +3,7 @@
 
     if($_POST){
 
-        $query = "select * from bairros where municipio = '{$_POST['municipio']}' order by descricao asc";
+        $query = "select * from bairros where municipio = '{$_POST['municipio']}' and deletado != '1' order by descricao asc";
         $result = mysql_query($query);
 ?>
         <option value="">::Selecione::</option>
