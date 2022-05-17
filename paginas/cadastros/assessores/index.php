@@ -30,15 +30,9 @@ $result = mysql_query($query);
         <h6 class="m-0 font-weight-bold text-primary">
             Assessores
         </h6>
-        <?php
-        if (in_array('Assessores - Cadastrar', $ConfPermissoes)) {
-            ?>
             <button type="button" class="btn btn-success btn-sm" url="paginas/cadastros/assessores/form.php">
                 <i class="fa-solid fa-plus"></i> Novo
             </button>
-            <?php
-        }
-        ?>
     </div>
     <div class="card-body">
         <div class="table-responsive">
