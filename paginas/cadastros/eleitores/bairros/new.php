@@ -43,7 +43,18 @@
                         bairro
                     },
                     success:function(dados){
-                        JanelaAddBairro.close();
+                        $.ajax({
+                            url:"paginas/cadastros/eleitores/bairros/list.php",
+                            type:"POST",
+                            data:{
+                                municipio
+                            },
+                            success:function(dados){
+                                $("#bairro").html(dados);
+                                JanelaAddBairro.close();
+                            }
+                        });
+
                     }
                 });
             }
