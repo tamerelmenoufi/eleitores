@@ -7,7 +7,7 @@ if ($_POST['acao'] === 'verifica_sessao') {
     exit();
 }
 
-if (!isset($_GET['s'])) {
+if (isset($_GET['s'])) {
     session_destroy();
     header("Location: ./");
 }
