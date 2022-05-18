@@ -5,7 +5,7 @@ $column = [
     'nome',
     'cpf',
     'm.municipio',
-    (($_SESSION['usuario']['codigo'] == 'u')?"'assessor'":false)
+    (($_SESSION['usuario']['codigo'] == 'a')?"'assessor'":false)
 ];
 
 $where = false;

@@ -45,6 +45,7 @@ $result = mysql_query($query);
                     <th>Nome</th>
                     <th>CPF</th>
                     <th>Município</th>
+                    <?=(($_SESSION['usuario']['codigo'] == 'a')?'<th>Assessores</th>':false)?>
                     <th class="mw-20">Ações</th>
                 </tr>
                 </thead>
