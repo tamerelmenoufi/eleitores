@@ -1,8 +1,11 @@
 <?php
 //error_reporting(E_ALL);
-include "lib/includes.php";
+//include "lib/includes.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    include "lib/includes.php";
+
     $usuario = mysql_real_escape_string($_POST['usuario']);
     $senha = ($_POST['senha']);
 
