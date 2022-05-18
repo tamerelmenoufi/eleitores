@@ -220,6 +220,26 @@ if ($codigo) {
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class='col-12'>
+                    <div class="form-group">
+                        <label for="perfil">
+                            Perfil <i class="text-danger">*</i>
+                        </label>
+                        <select
+                                class="form-control"
+                                id="perfil"
+                                name="perfil"
+                                data-live-search="true"
+                                required
+                        >
+                            <option value="u">Usuário (Assessor)</option>
+                            <option value="a">Administrador</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
 
             <!-- <div class="form-group">
                 <label for="responsavel">
