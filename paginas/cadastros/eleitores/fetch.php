@@ -4,15 +4,17 @@ include "config_eleitores.php";
 $column = [
     'nome',
     'cpf',
-    'm.municipio'
+    'm.municipio',
+    (($_SESSION['usuario']['codigo'] == 'u')?'assessor':false)
 ];
 
 $where = false;
 
 if($_SESSION['usuario']['codigo'] == 'u') $where = " and assessor = '{$_SESSION['usuario']['codigo']}' ";
 
-$query = "SELECT b.*, m.municipio AS municipio FROM eleitores b "
+$query = "SELECT b.*, m.municipio AS municipio, a.nome assessor FROM eleitores b "
     . "LEFT JOIN municipios m ON m.codigo = b.municipio"
+    . "LEFT JOIN assessores a ON a.codigo = b.assessor"
     . "WHERE b.deletado = '0' {$where}";
 
 $result = mysql_query($query);
@@ -50,13 +52,13 @@ while ($row = mysql_fetch_array($result1)) {
                         <i class="fa-regular fa-eye text-info"></i>
                    </button>';
 
-        $btn_acoes .= '<button class="btn btn-sm btn-link" url="' . $urlEleitores . '/form.php?codigo=' . $row['codigo'] . '">
-                        <i class="fa-solid fa-pencil text-warning"></i>
-                    </button>';
+    $btn_acoes .= '<button class="btn btn-sm btn-link" url="' . $urlEleitores . '/form.php?codigo=' . $row['codigo'] . '">
+                    <i class="fa-solid fa-pencil text-warning"></i>
+                </button>';
 
-        $btn_acoes .= '<button class="btn btn-sm btn-link btn-excluir" data-codigo="' . $row['codigo'] . '">
-                        <i class="fa-regular fa-trash-can text-danger"></i>
-                   </button>';
+    $btn_acoes .= '<button class="btn btn-sm btn-link btn-excluir" data-codigo="' . $row['codigo'] . '">
+                    <i class="fa-regular fa-trash-can text-danger"></i>
+                </button>';
 
     $sub_array[] = $row['nome'];
     $sub_array[] = $row['cpf'];
