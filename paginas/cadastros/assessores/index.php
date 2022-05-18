@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' and $_POST['acao'] === 'excluir') {
     exit;
 }
 
-$query = "SELECT * FROM assessores WHERE deletado = '0'";
+$query = "SELECT * , if(perfil = 'a', 'Administrador','Assessor') as perfil FROM assessores WHERE deletado = '0'";
 $result = mysql_query($query);
 
 ?>
@@ -42,6 +42,7 @@ $result = mysql_query($query);
                 <tr>
                     <th>Nome</th>
                     <th>CPF</th>
+                    <th>Perfil</th>
                     <th class="mw-20">Ações</th>
                 </tr>
                 </thead>
@@ -50,6 +51,7 @@ $result = mysql_query($query);
                     <tr id="linha-<?= $d->codigo; ?>">
                         <td><?= $d->nome ?></td>
                         <td><?= $d->cpf; ?></td>
+                        <td><?= $d->perfil; ?></td>
                         <td>
                             <button
                                     class="btn btn-sm btn-link"
