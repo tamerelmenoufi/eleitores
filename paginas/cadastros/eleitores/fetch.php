@@ -7,9 +7,13 @@ $column = [
     'm.municipio'
 ];
 
+$where = false;
+
+if($_SESSION['usuario']['codigo'] == 'u') $where = " and assessor = '{$_SESSION['usuario']['codigo']}' ";
+
 $query = "SELECT b.*, m.municipio AS municipio FROM eleitores b "
-    . "LEFT JOIN municipios m ON m.codigo = b.municipio "
-    . "WHERE b.deletado = '0' ";
+    . "LEFT JOIN municipios m ON m.codigo = b.municipio"
+    . "WHERE b.deletado = '0' {$where}";
 
 $result = mysql_query($query);
 
