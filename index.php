@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $d = mysql_fetch_array($result);
 
         if ($d['status'] === '0') {
-            echo json_encode(['status' => false, 'msg' => 'Usuário inativo']);
+            echo json_encode(['status' => false, 'msg' => 'Usuário inativo'.$query]);
         } else {
             $_SESSION['usuario'] = $d;
             echo json_encode(['status' => true]);
