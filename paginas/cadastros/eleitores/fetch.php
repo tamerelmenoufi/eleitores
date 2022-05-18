@@ -37,6 +37,8 @@ $query1 = '';
 
 if ($_POST['length'] != -1) $query1 = 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 
+echo $query . $query1;
+
 $result = mysql_query($query);
 
 $number_filter_row = mysql_num_rows($result);
