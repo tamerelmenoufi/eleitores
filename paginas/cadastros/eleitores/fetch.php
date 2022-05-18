@@ -1,10 +1,6 @@
 <?php
 include "config_eleitores.php";
 
-$_POST['start'] = '0';
-$_POST['length'] = '10';
-
-
 $column = [
     'nome',
     'cpf',
