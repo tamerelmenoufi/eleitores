@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
     } else {
-        echo json_encode(['status' => false, 'msg' => 'Usuário ou senha incorreto']);
+        echo json_encode(['status' => false, 'msg' => 'Usuário ou senha incorreto'.$query]);
     }
     exit;
 }
