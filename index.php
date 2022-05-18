@@ -250,6 +250,8 @@ if (isset($_SESSION['usuario'])) {
         });
 
 
+        //Dados para acesso ao painel de controle (Login)
+        $("#usuario").mask("999.999.999-99");
         $(".form-login").submit(function (e) {
             e.preventDefault();
 
