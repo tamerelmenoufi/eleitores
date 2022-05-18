@@ -234,7 +234,7 @@ if ($codigo) {
                                 required
                         >
                             <option value="u">Usuário (Assessor)</option>
-                            <option value="a">Administrador</option>
+                            <option value="a" <?=(($d->perfil == 'a')?'selected':false)?>>Administrador</option>
                         </select>
                     </div>
 
