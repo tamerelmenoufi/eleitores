@@ -1,8 +1,8 @@
 <?php
 include "config_eleitores.php";
 
-$_POST['start'] = '0';
-$_POST['length'] = '10';
+// $_POST['start'] = '0';
+// $_POST['length'] = '10';
 
 
 $column = [
@@ -41,7 +41,7 @@ $query1 = '';
 
 if ($_POST['length'] != -1) $query1 = 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
 
-echo $query . $query1;
+// echo $query . $query1;
 
 $result = mysql_query($query);
 
