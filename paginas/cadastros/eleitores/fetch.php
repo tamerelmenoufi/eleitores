@@ -78,7 +78,7 @@ $output = [
 // @formatter:on
 
 echo json_encode($output);
-exit();
+// exit();
 
 function count_all_data()
 {
