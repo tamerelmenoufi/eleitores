@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($d['status'] === '0') {
             echo json_encode(['status' => false, 'msg' => 'Usuário inativo']);
         } else {
-            $_SESSION['usuario'] = $d['codigo'];
+            $_SESSION['usuario'] = $d;
             echo json_encode(['status' => true]);
         }
 
