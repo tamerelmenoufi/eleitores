@@ -9,7 +9,7 @@ if ($_POST['acao'] === 'verifica_sessao') {
 
 if (!isset($_SESSION['usuario'])) {
     //header("Location: ./");
-    session_destroy();
+    //session_destroy();
 }
 
 
