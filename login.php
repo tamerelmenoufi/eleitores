@@ -1,34 +1,3 @@
-<?php
-//error_reporting(E_ALL);
-//include "lib/includes.php";
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    include "lib/includes.php";
-
-    $usuario = mysql_real_escape_string($_POST['usuario']);
-    $senha = ($_POST['senha']);
-
-    $query = "SELECT * FROM assessores WHERE cpf = '{$usuario}' AND senha = '{$senha}' LIMIT 1";
-    $result = mysql_query($query);
-
-    if (mysql_num_rows($result)) {
-        $d = mysql_fetch_array($result);
-
-        if ($d['status'] === '0') {
-            echo json_encode(['status' => false, 'msg' => 'Usuário inativo']);
-        } else {
-            $_SESSION['usuario'] = $d;
-            echo json_encode(['status' => true]);
-        }
-
-    } else {
-        echo json_encode(['status' => false, 'msg' => 'Usuário ou senha incorreto']);
-    }
-    exit;
-}
-
-?>
 <div class="container">
 
     <!-- Outer Row -->
