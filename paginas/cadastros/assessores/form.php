@@ -249,7 +249,7 @@ if ($codigo) {
                                     class="form-control"
                                     id="senha"
                                     name="senha"
-                                    value=" <?= $d->senha; ?>"
+                                    value="<?=$d->senha;?>"
                                     required
                             >
 
