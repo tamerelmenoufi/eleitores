@@ -34,7 +34,7 @@
                 <input type="text" class="form-control" id="NovoBairro" value='<?=$d->descricao?>' >
             </div>
             <button SalvarBairro type="button" class="btn btn-primary">Salvar</button>
-            <button ExcluirBairro type="button" class="btn btn-danger">Exluir</button>
+            <button <?=(($d->qt)?'disabled':'ExcluirBairro')?> type="button" class="btn btn-danger">Exluir</button>
             <?=$d->qt?> Registros
         </div>
     </div>
