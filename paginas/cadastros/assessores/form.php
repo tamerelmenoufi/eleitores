@@ -221,7 +221,7 @@ if ($codigo) {
                 </div>
             </div>
             <div class="row">
-                <div class='col-12'>
+                <div class='col-6'>
                     <div class="form-group">
                         <label for="perfil">
                             Perfil <i class="text-danger">*</i>
@@ -237,7 +237,22 @@ if ($codigo) {
                             <option value="a" <?=(($d->perfil == 'a')?'selected':false)?>>Administrador</option>
                         </select>
                     </div>
+                    <div class='col-6'>
+                        <div class="form-group">
+                            <label for="senha">
+                                Chave de acesso <i class="text-danger">*</i>
+                            </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="senha"
+                                    name="senha"
+                                    value=" <?= $d->senha; ?>"
+                                    required
+                            >
 
+                        </div>
+                    </div>
                 </div>
             </div>
 
