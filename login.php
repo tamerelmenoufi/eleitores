@@ -72,27 +72,3 @@
     </div>
 
 </div>
-
-<script>
-    $(function () {
-        $(".form-login").submit(function (e) {
-            e.preventDefault();
-
-            $.ajax({
-                url: 'login.php',
-                data: $(this).serializeArray(),
-                method: 'POST',
-                success: function (response) {
-                    let retorno = JSON.parse(response);
-
-                    if (retorno.status) {
-                        window.location = './';
-                    } else {
-                        tata.error('Aviso', retorno.msg);
-                    }
-                }
-
-            })
-        });
-    });
-</script>
