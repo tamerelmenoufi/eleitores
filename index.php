@@ -81,11 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php
 
-echo "Var Dump:";
-
-var_dump($_SESSION);
-
-
 if (isset($_SESSION['usuario'])) {
 
 ?>
