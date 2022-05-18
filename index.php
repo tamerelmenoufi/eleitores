@@ -81,6 +81,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php
 
+echo "Dados do usuário:";
+
+print_r($_SESSION['usuario']);
+
+
 if (isset($_SESSION['usuario'])) {
 
 ?>
