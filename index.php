@@ -26,14 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $d = mysql_fetch_array($result);
 
         if ($d['status'] === '0') {
-            echo json_encode(['status' => false, 'msg' => 'Usuário inativo'.$query]);
+            echo json_encode(['status' => false, 'msg' => 'Usuário inativo']);
         } else {
             $_SESSION['usuario'] = $d;
             echo json_encode(['status' => true]);
         }
 
     } else {
-        echo json_encode(['status' => false, 'msg' => 'Usuário ou senha incorreto'.$query]);
+        echo json_encode(['status' => false, 'msg' => 'Usuário ou senha incorreto']);
     }
     exit;
 }
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 echo "Dados do usuário:";
 
-print_r($_SESSION['usuario']);
+var_dump($_SESSION);
 
 
 if (isset($_SESSION['usuario'])) {
