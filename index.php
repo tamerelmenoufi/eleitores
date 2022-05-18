@@ -7,9 +7,9 @@ if ($_POST['acao'] === 'verifica_sessao') {
     exit();
 }
 
-if (!isset($_SESSION['usuario'])) {
-    //header("Location: ./");
-    //session_destroy();
+if (!isset($_GET['s'])) {
+    session_destroy();
+    header("Location: ./");
 }
 
 
@@ -147,7 +147,7 @@ if (isset($_SESSION['usuario'])) {
             <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão atual.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-primary" href="../">Sair</a>
+                <a class="btn btn-primary" href="./?s=1">Sair</a>
             </div>
         </div>
     </div>
