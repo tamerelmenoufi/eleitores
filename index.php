@@ -254,7 +254,7 @@ if (isset($_SESSION['usuario'])) {
             e.preventDefault();
 
             $.ajax({
-                url: 'login.php',
+                url: 'index.php',
                 data: $(this).serializeArray(),
                 method: 'POST',
                 success: function (response) {
