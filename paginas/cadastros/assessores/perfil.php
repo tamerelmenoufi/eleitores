@@ -130,7 +130,7 @@ if ($codigo) {
                         </select>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-6">
                     <div class="form-group">
                         <label for="email">
                             E-Mail <i class="text-danger"></i>
