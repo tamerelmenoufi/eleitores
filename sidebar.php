@@ -24,14 +24,14 @@
 
     <li class="nav-item active">
         <a class="nav-link" href="#" url="paginas/cadastros/assessores/index.php">
-            <i class="fa-solid fa-house"></i>
+        <i class="fa-solid fa-users"></i>
             <span>Assessores</span></a>
     </li>
 
 
     <li class="nav-item active">
         <a class="nav-link" href="#" url="paginas/cadastros/eleitores/index.php">
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-users-line"></i>
             <span>Eleitores</span></a>
     </li>
 
