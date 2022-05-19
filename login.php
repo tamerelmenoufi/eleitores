@@ -32,7 +32,7 @@
                                                 id="usuario"
                                                 name="usuario"
                                                 aria-describedby="usuario"
-                                                placeholder="Usuário"
+                                                placeholder="CPF do Usuário"
                                                 autocomplete="false"
                                         >
                                     </div>
