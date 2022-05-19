@@ -32,7 +32,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="#" url="paginas/cadastros/eleitores/index.php">
             <i class="fa-solid fa-address-book"></i>
-            <span>Eleitores</span></a>
+            <span>Eleitores x</span></a>
     </li>
 
     <li class="nav-item">
