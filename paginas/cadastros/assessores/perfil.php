@@ -75,146 +75,171 @@ if ($codigo) {
     </div>
     <div class="card-body">
         <form id="form-usuarios">
-            <div class="form-group">
-                <label for="nome">Nome <i class="text-danger">*</i></label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="nome"
-                        name="nome"
-                        value="<?= $d->nome; ?>"
-                        required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="data_nascimento">
-                    Data de Nascimento <i class="text-danger">*</i>
-                </label>
-                <input
-                        type="date"
-                        class="form-control"
-                        id="data_nascimento"
-                        name="data_nascimento"
-                        value="<?= $d->data_nascimento; ?>"
-                        required
-                >
-
-            </div>
-
-            <div class="form-group">
-                <label for="sexo">Sexo <i class="text-danger">*</i></label>
-                <select
-                        class="form-control"
-                        id="sexo"
-                        name="sexo"
-                        required
-                >
-                    <option value=""></option>
-                    <?php foreach (getSexo() as $key => $sexo) : ?>
-                        <option
-                            <?= ($codigo and $d->sexo == $key) ? "selected" : ""; ?>
-                                value="<?= $key; ?>"
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="nome">Nome <i class="text-danger">*</i></label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="nome"
+                                name="nome"
+                                value="<?= $d->nome; ?>"
+                                required
                         >
-                            <?= $sexo; ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="email">
-                    E-Mail <i class="text-danger"></i>
-                </label>
-                <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        name="email"
-                        value="<?= $d->email; ?>"
-                >
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="data_nascimento">
+                            Data de Nascimento <i class="text-danger">*</i>
+                        </label>
+                        <input
+                                type="date"
+                                class="form-control"
+                                id="data_nascimento"
+                                name="data_nascimento"
+                                value="<?= $d->data_nascimento; ?>"
+                                required
+                        >
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="sexo">Sexo <i class="text-danger">*</i></label>
+                        <select
+                                class="form-control"
+                                id="sexo"
+                                name="sexo"
+                                required
+                        >
+                            <option value=""></option>
+                            <?php foreach (getSexo() as $key => $sexo) : ?>
+                                <option
+                                    <?= ($codigo and $d->sexo == $key) ? "selected" : ""; ?>
+                                        value="<?= $key; ?>"
+                                >
+                                    <?= $sexo; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="email">
+                            E-Mail <i class="text-danger"></i>
+                        </label>
+                        <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                name="email"
+                                value="<?= $d->email; ?>"
+                        >
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="telefone">
+                            Telefone <i class="text-danger">*</i>
+                        </label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="telefone"
+                                name="telefone"
+                                value="<?= $d->telefone; ?>"
+                                required
+                        >
+
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="form-group">
+                        <label for="municipio">
+                            Municipio <i class="text-danger">*</i>
+                        </label>
+                        <select
+                                class="form-control"
+                                id="municipio"
+                                name="municipio"
+                                data-live-search="true"
+                                required
+                        >
+                            <option value=""></option>
+                            <?php
+                            $query = "SELECT * FROM municipios";
+                            $result = mysql_query($query);
+
+                            while ($m = mysql_fetch_object($result)): ?>
+                                <option
+                                    <?= ($codigo and $d->municipio == $m->codigo) ? 'selected' : ''; ?>
+                                        value="<?= $m->codigo ?>">
+                                    <?= $m->municipio; ?>
+                                </option>
+                            <?php endwhile; ?>
+                        </select>
+
+                    </div>
+                </div>
 
             </div>
 
-            <div class="form-group">
-                <label for="telefone">
-                    Telefone <i class="text-danger">*</i>
-                </label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="telefone"
-                        name="telefone"
-                        value="<?= $d->telefone; ?>"
-                        required
-                >
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="endereco">
+                            Endereco <i class="text-danger">*</i>
+                        </label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="endereco"
+                                name="endereco"
+                                value=" <?= $d->endereco; ?>"
+                                required
+                        >
 
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label for="municipio">
-                    Municipio <i class="text-danger">*</i>
-                </label>
-                <select
-                        class="form-control"
-                        id="municipio"
-                        name="municipio"
-                        data-live-search="true"
-                        required
-                >
-                    <option value=""></option>
-                    <?php
-                    $query = "SELECT * FROM municipios";
-                    $result = mysql_query($query);
-
-                    while ($m = mysql_fetch_object($result)): ?>
-                        <option
-                            <?= ($codigo and $d->municipio == $m->codigo) ? 'selected' : ''; ?>
-                                value="<?= $m->codigo ?>">
-                            <?= $m->municipio; ?>
-                        </option>
-                    <?php endwhile; ?>
-                </select>
-
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="senha">Senha <i class="text-danger">*</i></label>
+                        <input
+                                type="password"
+                                class="form-control"
+                                id="senha"
+                                name="senha"
+                                value="<?= !$codigo ? $d->senha : ''; ?>"
+                            <?= !$codigo ? 'required' : ''; ?>
+                        >
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="senha_2">Confirmar senha <i class="text-danger">*</i></label>
+                        <input
+                                type="password"
+                                class="form-control"
+                                id="senha_2"
+                                name="senha_2"
+                            <?= !$codigo ? 'required' : ''; ?>
+                        >
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="endereco">
-                    Endereco <i class="text-danger">*</i>
-                </label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="endereco"
-                        name="endereco"
-                        value=" <?= $d->endereco; ?>"
-                        required
-                >
-
-            </div>
-
-            <div class="form-group">
-                <label for="senha">Senha <i class="text-danger">*</i></label>
-                <input
-                        type="password"
-                        class="form-control"
-                        id="senha"
-                        name="senha"
-                        value="<?= !$codigo ? $d->senha : ''; ?>"
-                    <?= !$codigo ? 'required' : ''; ?>
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="senha_2">Confirmar senha <i class="text-danger">*</i></label>
-                <input
-                        type="password"
-                        class="form-control"
-                        id="senha_2"
-                        name="senha_2"
-                    <?= !$codigo ? 'required' : ''; ?>
-                >
-            </div>
-
 
             <input type="hidden" id="codigo" value="<?= $codigo; ?>">
 
