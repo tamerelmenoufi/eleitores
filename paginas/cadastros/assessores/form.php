@@ -212,7 +212,7 @@ if ($codigo) {
                                 class="form-control"
                                 id="endereco"
                                 name="endereco"
-                                value=" <?= $d->endereco; ?>"
+                                value="<?= $d->endereco; ?>"
                                 required
                         >
 
