@@ -12,7 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($data as $name => $value) {
         $attr[] = "{$name} = '" . mysql_real_escape_string($value) . "'";
     }
+
+    if (!$codigo) {
         $attr[] = "assessor = '" . $_SESSION['usuario']['codigo'] . "'";
+    }
         $attr[] = "data_cadastro = NOW()";
 
     $attr = implode(', ', $attr);
