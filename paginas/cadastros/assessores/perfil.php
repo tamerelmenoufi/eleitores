@@ -293,7 +293,7 @@ if ($codigo) {
             }
 
             $.ajax({
-                url: '<?= $urlAssessores; ?>/form.php',
+                url: '<?= $urlAssessores; ?>/perfil.php',
                 method: 'POST',
                 data: dados,
                 success: function (response) {
