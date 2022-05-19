@@ -287,7 +287,7 @@ if ($codigo) {
 
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="zona">
                             Zona <i class="text-danger"></i>
@@ -303,7 +303,7 @@ if ($codigo) {
 
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="secao">
                             Seção <i class="text-danger">*</i>
