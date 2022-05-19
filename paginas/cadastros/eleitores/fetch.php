@@ -16,7 +16,7 @@ $where = false;
 
 if($_SESSION['usuario']['perfil'] == 'u') $where = " and a.assessor = '{$_SESSION['usuario']['codigo']}' ";
 
-$query = "SELECT b.*, m.municipio AS municipio, a.nome assessor FROM eleitores b "
+echo $query = "SELECT b.*, m.municipio AS municipio, a.nome assessor FROM eleitores b "
     . " LEFT JOIN municipios m ON m.codigo = b.municipio "
     . " LEFT JOIN assessores a ON a.codigo = b.assessor "
     . " WHERE b.deletado = '0' {$where} ";
