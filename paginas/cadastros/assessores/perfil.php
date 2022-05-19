@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     foreach ($data as $name => $value) {
         if ($name == 'senha') {
-            $attr[] = "{$name} = '" . md5($value) . "'";
+            $attr[] = "{$name} = '" . ($value) . "'";
         } else {
             $attr[] = "{$name} = '" . mysql_real_escape_string($value) . "'";
         }
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo json_encode([
             'status' => false,
-            'msg' => 'Erro ao salvar XX '.$query,
+            'msg' => 'Erro ao salvar',
             'codigo' => $codigo,
             'mysql_error' => mysql_error(),
         ]);
@@ -302,7 +302,7 @@ if ($codigo) {
                     if (retorno.status) {
                         tata.success('Sucesso', retorno.msg);
 
-                        window.location.href='index.php';
+                        window.location.href='./';
 
                     } else {
                         tata.error('Error', retorno.msg);
