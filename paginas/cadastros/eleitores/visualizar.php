@@ -94,6 +94,14 @@ $d = mysql_fetch_object($result);
             <div class="col-md-4 font-weight-bold">Endereço</div>
             <div class="col-md-8"><?= $d->endereco; ?></div>
         </div>
+        <div class="row">
+            <div class="col-md-4 font-weight-bold">Zona</div>
+            <div class="col-md-8"><?= $d->zona; ?></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 font-weight-bold">Seção</div>
+            <div class="col-md-8"><?= $d->secao; ?></div>
+        </div>
     </div>
 </div>
 

@@ -284,6 +284,43 @@ if ($codigo) {
 
             </div>
 
+
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="zona">
+                            Zona <i class="text-danger"></i>
+                        </label>
+                        <input
+                                type="zona"
+                                class="form-control"
+                                id="zona"
+                                name="zona"
+                                value="<?= $d->zona; ?>"
+
+                        >
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="secao">
+                            Seção <i class="text-danger">*</i>
+                        </label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="secao"
+                                name="secao"
+                                value="<?= $d->secao; ?>"
+                                required
+                        >
+
+                    </div>
+                </div>
+            </div>
+
             <input type="hidden" id="codigo" value="<?= $codigo; ?>">
 
             <button type="submit" class="btn btn-success">Salvar</button>
