@@ -290,7 +290,7 @@ if ($codigo) {
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="zona">
-                            Zona <i class="text-danger"></i>
+                            Zona <i class="text-danger">*</i>
                         </label>
                         <input
                                 type="zona"
@@ -298,7 +298,7 @@ if ($codigo) {
                                 id="zona"
                                 name="zona"
                                 value="<?= $d->zona; ?>"
-
+                                required
                         >
 
                     </div>
