@@ -14,7 +14,7 @@ $column = [
 
 $where = false;
 
-if($_SESSION['usuario']['codigo'] == 'u') $where = " and assessor = '{$_SESSION['usuario']['codigo']}' ";
+if($_SESSION['usuario']['perfil'] == 'u') $where = " and assessor = '{$_SESSION['usuario']['codigo']}' ";
 
 $query = "SELECT b.*, m.municipio AS municipio, a.nome assessor FROM eleitores b "
     . " LEFT JOIN municipios m ON m.codigo = b.municipio "
