@@ -21,13 +21,17 @@
     <hr class="sidebar-divider">
 
 
-
+    <?php
+    if($_SESSION['usuario']['perfil'] == 'a'){
+    ?>
     <li class="nav-item active">
         <a class="nav-link" href="#" url="paginas/cadastros/assessores/index.php">
         <i class="fa-solid fa-users"></i>
             <span>Assessores</span></a>
     </li>
-
+    <?php
+    }
+    ?>
 
     <li class="nav-item active">
         <a class="nav-link" href="#" url="paginas/cadastros/eleitores/index.php">
