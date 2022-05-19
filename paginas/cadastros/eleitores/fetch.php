@@ -69,6 +69,9 @@ while ($row = mysql_fetch_array($result1)) {
     $sub_array[] = $row['nome'];
     $sub_array[] = $row['cpf'];
     $sub_array[] = $row['municipio'];
+    if($_SESSION['usuario']['perfil'] == 'a'){
+    $sub_array[] = $row['assessor'];
+    }
     $sub_array[] = $btn_acoes;
 
     $data[] = $sub_array;
