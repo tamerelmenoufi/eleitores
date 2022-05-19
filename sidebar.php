@@ -31,7 +31,7 @@
 
     <li class="nav-item active">
         <a class="nav-link" href="#" url="paginas/cadastros/eleitores/index.php">
-            <i class="fa-solid fa-address-book"></i>
+            <i class="fa-solid fa-clipboard-list"></i>
             <span>Eleitores</span></a>
     </li>
 
