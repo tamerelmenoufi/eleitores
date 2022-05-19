@@ -1,5 +1,6 @@
 <?php
-include "config_usuarios.php";
+
+include "config_assessores.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = $_POST;
