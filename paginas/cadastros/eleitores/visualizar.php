@@ -2,8 +2,9 @@
 include "config_eleitores.php";
 
 $codigo = $_GET['codigo'];
-$query = "SELECT a.*, m.municipio AS municipio FROM eleitores a "
+$query = "SELECT a.*, m.municipio AS municipio, b.nome as assessor FROM eleitores a "
     . "LEFT JOIN municipios m ON m.codigo = a.municipio "
+    . "LEFT JOIN assessores b ON b.codigo = a.assessor "
     . "WHERE a.codigo = '{$codigo}'";
 $result = mysql_query($query);
 $d = mysql_fetch_object($result);
@@ -101,6 +102,10 @@ $d = mysql_fetch_object($result);
         <div class="row">
             <div class="col-md-4 font-weight-bold">Seção</div>
             <div class="col-md-8"><?= $d->secao; ?></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 font-weight-bold">Assessor</div>
+            <div class="col-md-8"><?= $d->assessor; ?></div>
         </div>
     </div>
 </div>
