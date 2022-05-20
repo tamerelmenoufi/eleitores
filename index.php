@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Painel - Dashboard</title>
+    <title>Sistema de Cadastros</title>
 
     <?php include "./lib/header.php"; ?>
 
