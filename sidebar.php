@@ -38,7 +38,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="#" url="paginas/cadastros/eleitores/index.php">
             <i class="fa-solid fa-clipboard-list"></i>
-            <span>Eleitores</span></a>
+            <span>Cadastros</span></a>
     </li>
 
     <!-- <li class="nav-item">
