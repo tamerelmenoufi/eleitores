@@ -122,12 +122,5 @@ $result = mysql_query($query);
         });
 
 
-        $.ajax({
-            url:'<?=(($_SESSION['usuario']['perfil'] == 'a')?'content.php':'paginas/cadastros/eleitores/index.php')?>',
-            success:function(dados){
-                $('#palco').html(data);
-            }
-        });
-
     });
 </script>
