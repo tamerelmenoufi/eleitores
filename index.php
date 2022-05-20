@@ -273,7 +273,7 @@ if (isset($_SESSION['usuario'])) {
 
         $.ajax({
             url:'<?=(($_SESSION['usuario']['perfil'] == 'a')?'content.php':'paginas/cadastros/eleitores/index.php')?>',
-            success:function(dados){
+            success:function(data){
                 $('#palco').html(data);
             }
         });
