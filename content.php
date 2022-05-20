@@ -35,7 +35,7 @@ include_once './lib/includes.php';
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Eleitores
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Cadstros
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
@@ -110,7 +110,7 @@ include_once './lib/includes.php';
                     <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <h4 class="small font-weight-bold">Registro de Eleitores <span
+                <h4 class="small font-weight-bold">Registro de Cadastros <span
                             class="float-right">80%</span></h4>
                 <div class="progress mb-4">
                     <div class="progress-bar bg-warning" role="progressbar" style="width: 80%"
