@@ -66,7 +66,7 @@ if ($codigo) {
     <ol class="breadcrumb shadow bg-gray-custom">
         <li class="breadcrumb-item"><a href="#" url="content.php">Início</a></li>
         <li class="breadcrumb-item" aria-current="page">
-            <a href="#" url="<?= $urlEleitores; ?>/index.php">Eleitores</a>
+            <a href="#" url="<?= $urlEleitores; ?>/index.php">Cadastros</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
             <?= $codigo ? 'Alterar' : 'Cadastrar'; ?>

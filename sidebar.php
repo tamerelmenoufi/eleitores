@@ -6,12 +6,15 @@
             <!-- <i class="fas fa-laugh-wink"></i> -->
             <i class="fa-solid fa-cubes"></i>
         </div>
-        <div class="sidebar-brand-text mx-3" title="Sistema de Registro de Eleitores">SRE</div>
+        <div class="sidebar-brand-text mx-3" title="Sistema de Cadastros">SC</div>
     </a>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
+    <?php
+    if($_SESSION['usuario']['perfil'] == 'a'){
+    ?>
     <!-- Nav Item - Dahboard -->
     <li class="nav-item active">
         <a class="nav-link" href="./">
@@ -22,9 +25,7 @@
     <hr class="sidebar-divider">
 
 
-    <?php
-    if($_SESSION['usuario']['perfil'] == 'a'){
-    ?>
+
     <li class="nav-item active">
         <a class="nav-link" href="#" url="paginas/cadastros/assessores/index.php">
         <i class="fa-solid fa-users"></i>
