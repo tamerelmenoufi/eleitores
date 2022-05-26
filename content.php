@@ -1,6 +1,15 @@
 <?php
 include_once './lib/includes.php';
 
+
+$assessores = mysql_fetch_object(mysql_query("select count(*) as qt from assessores where deletado != '1'"));
+$cadastros = mysql_fetch_object(mysql_query("select count(*) as qt from eleitores where deletado != '1'"));
+
+$total = ($assessores->qt + $cadastros->qt);
+$pca = number_format(($assessores->qt*100)/$total,0,false,false);
+$pcc = number_format(($cadastros->qt*100)/$total,0,false,false);
+
+
 ?>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -19,7 +28,7 @@ include_once './lib/includes.php';
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Assessores
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">520</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$assessores->qt?></div>
                     </div>
                     <div class="col-auto">
                         <i class="fa-solid fa-users fa-2x text-gray-300"></i>
@@ -39,7 +48,7 @@ include_once './lib/includes.php';
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">1248</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?=$cadastros->qt?></div>
                             </div>
                         </div>
                     </div>
@@ -105,16 +114,16 @@ include_once './lib/includes.php';
 
 
                 <h4 class="small font-weight-bold">Registro de Assessores <span
-                            class="float-right">20%</span></h4>
+                            class="float-right"><?=$pca?>%</span></h4>
                 <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: <?=$pca?>%"
+                         aria-valuenow="<?=$pca?>" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <h4 class="small font-weight-bold">Registro de Cadastros <span
-                            class="float-right">80%</span></h4>
+                            class="float-right"><?=$pcc?>%</span></h4>
                 <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 80%"
-                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: <?=$pcc?>%"
+                         aria-valuenow="<?=$pcc?>" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <!-- <h4 class="small font-weight-bold">Customer Database <span
                             class="float-right">60%</span></h4>
