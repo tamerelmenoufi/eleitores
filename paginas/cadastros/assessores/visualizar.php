@@ -2,7 +2,7 @@
 include "config_assessores.php";
 
 $codigo = $_GET['codigo'];
-$query = "SELECT a.*, m.municipio AS municipio, if(a.perfil = 'a', 'Administrador','Assessor') as perfil FROM assessores a "
+$query = "SELECT a.*, m.municipio AS municipio, if(a.perfil = 'a', 'Administrador','Assessor') as perfil, if(a.situacao = '0', 'Bloqueado','Liberado') as situacao FROM assessores a "
     . "LEFT JOIN municipios m ON m.codigo = a.municipio "
     . "WHERE a.codigo = '{$codigo}'";
 $result = mysql_query($query);
@@ -89,6 +89,10 @@ $d = mysql_fetch_object($result);
         <div class="row">
             <div class="col-md-4 font-weight-bold">Perfil</div>
             <div class="col-md-8"><?= $d->perfil; ?></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 font-weight-bold">Situação</div>
+            <div class="col-md-8"><?= $d->situacao; ?></div>
         </div>
     </div>
 </div>
