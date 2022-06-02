@@ -11,6 +11,14 @@ function getSexo()
     ];
 }
 
+function getSituacao()
+{
+    return [
+        '0' => 'Bloqueado',
+        '1' => 'Liberado'
+    ];
+}
+
 function getSexoOptions($sexo)
 {
     $list = getSexo();

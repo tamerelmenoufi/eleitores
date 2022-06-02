@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = mysql_real_escape_string($_POST['usuario']);
     $senha = ($_POST['senha']);
 
-    $query = "SELECT * FROM assessores WHERE cpf = '{$usuario}' AND senha = '{$senha}' LIMIT 1";
+    $query = "SELECT * FROM assessores WHERE cpf = '{$usuario}' AND senha = '{$senha}' AND situacao = '1' LIMIT 1";
     $result = mysql_query($query);
 
     if (mysql_num_rows($result)) {

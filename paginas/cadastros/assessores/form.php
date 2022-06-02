@@ -221,7 +221,7 @@ if ($codigo) {
             </div>
 
             <div class="row">
-                <div class='col-6'>
+                <div class='col-4'>
                     <div class="form-group">
                         <label for="perfil">
                             Perfil <i class="text-danger">*</i>
@@ -238,7 +238,7 @@ if ($codigo) {
                         </select>
                     </div>
                 </div>
-                <div class='col-6'>
+                <div class='col-4'>
                         <div class="form-group">
                             <label for="senha">
                                 Chave de acesso <i class="text-danger">*</i>
@@ -254,6 +254,30 @@ if ($codigo) {
 
                         </div>
                 </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="situacao">Situacao <i class="text-danger">*</i></label>
+                        <select
+                                class="form-control"
+                                id="situacao"
+                                name="situacao"
+                                required
+                        >
+                            <option value=""></option>
+                            <?php foreach (getSituacao() as $key => $situacao) : ?>
+                                <option
+                                    <?= ($codigo and $d->situacao == $key) ? "selected" : ""; ?>
+                                        value="<?= $key; ?>"
+                                >
+                                    <?= $situacao; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+
             </div>
 
             <!-- <div class="form-group">
