@@ -23,7 +23,7 @@ $Bd = [
 ];
 
 $query = "SELECT m.municipio AS descricao, COUNT(*) AS qt FROM eleitores b "
-. "INNER JOIN municipios b ON b.municipio = m.codigo "
+. "INNER JOIN municipios m ON b.municipio = m.codigo "
 . "GROUP BY b.municipio ORDER BY qt DESC, m.municipio asc";
 
 $result = mysql_query($query);
