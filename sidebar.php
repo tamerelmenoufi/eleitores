@@ -41,7 +41,7 @@
             <span>Cadastros</span></a>
     </li>
 
-    <li class="nav-item" style="opacity:0;">
+    <li class="nav-item" >
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#relatorios"
            aria-expanded="true" aria-controls="relatorios">
            <i class="fas fa-chart-pie"></i>
