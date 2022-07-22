@@ -6,9 +6,9 @@ header('Content-Disposition: attachment; filename=municipios.csv');
 
 $md5 = md5(date("YmdHis") . $_SERVER["PHP_SELF"]);
 
-$query = "SELECT m.municipio AS descricao, COUNT(*) AS qt FROM municipios m "
-    . "INNER JOIN eleitores b ON b.municipio = m.codigo "
-    . "GROUP BY b.municipio ORDER BY qt DESC";
+$query = "SELECT m.municipio AS descricao, COUNT(*) AS qt FROM eleitores b "
+. "INNER JOIN municipios b ON b.municipio = m.codigo "
+. "GROUP BY b.municipio ORDER BY qt DESC, m.municipio asc";
 
 $result = mysql_query($query);
 $i = 0;

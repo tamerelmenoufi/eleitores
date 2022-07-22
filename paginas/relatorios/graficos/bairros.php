@@ -22,7 +22,7 @@ $Bd = [
     'rgba(255, 159, 64, 1)'
 ];
 
-echo $query = "SELECT bai.descricao AS descricao, COUNT(*) AS qt FROM bairros bai INNER JOIN eleitores b ON b.bairro = bai.codigo GROUP BY bai.descricao ORDER BY qt DESC";
+$query = "SELECT bai.descricao AS descricao, COUNT(*) AS qt FROM eleitores b INNER JOIN bairros bai ON b.bairro = bai.codigo GROUP BY bai.descricao ORDER BY qt DESC, bai.descricao asc";
 
 /*$query = "SELECT b.tipo, COUNT(*) AS qt FROM servicos a "
     . "LEFT JOIN servico_tipo b ON a.tipo = b.codigo GROUP BY a.tipo"
@@ -118,7 +118,7 @@ if ($qt) $qt = implode(", ", $qt);
       }*/,
                     title: {
                         display: true,
-                        text: 'Quantitativo de bairros dos beneficiados'
+                        text: 'Quantitativo de cadastros por bairro'
                     },
 
 
