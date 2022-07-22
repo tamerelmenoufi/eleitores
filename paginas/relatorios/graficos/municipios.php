@@ -22,7 +22,6 @@ $Bd = [
     'rgba(255, 159, 64, 1)'
 ];
 
-
 $query = "SELECT m.municipio AS descricao, COUNT(*) AS qt FROM municipios m "
     . "INNER JOIN eleitores b ON b.municipio = m.codigo "
     . "GROUP BY b.municipio ORDER BY qt DESC";
