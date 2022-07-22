@@ -6,7 +6,7 @@
 
     $md5  = md5(date("YmdHis").$_SERVER["PHP_SELF"]);
 
-    $query = "SELECT a.nome AS descricao, COUNT(*) AS qt FROM servicos s "
+    $query = "SELECT a.nome AS descricao, COUNT(*) AS qt FROM eleitores s "
     ."INNER JOIN assessores a ON a.codigo = s.assessor "
     ."GROUP BY a.nome ORDER BY qt DESC";
 
