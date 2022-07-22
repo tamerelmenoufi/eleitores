@@ -24,8 +24,7 @@ $Bd = [
 
 
 $query = "SELECT m.municipio AS descricao, COUNT(*) AS qt FROM municipios m "
-    . "INNER JOIN beneficiados b ON b.municipio = m.codigo "
-    . "INNER JOIN servicos s ON s.beneficiado = b.codigo "
+    . "INNER JOIN eleitores b ON b.municipio = m.codigo "
     . "GROUP BY b.municipio ORDER BY qt DESC";
 
 $result = mysql_query($query);
@@ -118,7 +117,7 @@ if ($qt) $qt = implode(", ", $qt);
       }*/,
                     title: {
                         display: true,
-                        text: 'Quantitativo de municípios dos beneficiados'
+                        text: 'Quantitativo de cadastros por município'
                     },
 
 
